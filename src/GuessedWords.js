@@ -3,9 +3,28 @@ import PropTypes from "prop-types";
 
 const GuessedWords = props => {
   const contents =
-    props.guessedWord.length === 0 ? (
+    props.guessedWords.length === 0 ? (
       <span data-test="guess-instructions">Try to guess the secret word!</span>
-    ) : null;
+    ) : (
+      <div data-test="guessed-words">
+        <h3>Guessed Words</h3>
+        <table>
+          <thead>
+            <tr><th>Guess</th><th>Matching Letters</th></tr>
+            <tr>
+              <tbody>
+                {props.guessedWords.map((word, index)=>{
+                  return (<tr data-test="guessed-word" key={index}>
+                    <td>word.guessedWord</td>
+                    <td>{word.letterMatchCount}</td>
+                  </tr>)
+                })}
+              </tbody>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    );
   return (
     <div data-test="component-guessed-words">
       <span data-test="guess-instruction">{contents}</span>
