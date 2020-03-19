@@ -4,8 +4,8 @@
  * @param {*} state 
  * @param {*} action 
  */
-const succes = (state, action) => {
+const success = (state={}, action) => {
   return null;
 }
 
-export default succes;
+export default success;
